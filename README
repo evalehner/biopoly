@@ -1,0 +1,12 @@
+Wenn alles funktioniert wie es sollte müsst ihr ./driverScrip.sh aussführen
+und die Daten in folgender struktur gespeichert haben HCV/w*s*/data
+ 
+das sollte alle Berechnungen für euch machen. (Command war jz nicht SISSIz_11 sondern nur SISSIz weil das andere nicht ging)
+R Script sollte auch so gehen, dass ihr alle plots sofort bekommt wenn ihr es laufen lasst.
+ACHTUNG: alle kommands die kein if [ ! -e] statement enthalten laufen jedesmal wenn driverScript.sh ausgeführt wird 
+
+task 6 und 7 laufen noch nicht 
+
+hoffe es funktioniert und ich hab keine Fehler eingebaut ;) 
+
+ 
