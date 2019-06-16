@@ -25,7 +25,10 @@ colnames(out_300_75) <- c("cat", "windowLength", "overlap", "fileIndex", "start_
 # plotting function
 zScorePlot <- function (df, mainTitle){
   ggplot(df, aes(x=df$start_stop, y= df$zScore)) + geom_line() +
-    labs(title=mainTitle,  x="Postion in alignment", y="z-score") + theme_bw()
+    labs(title=mainTitle,  x="Postion in alignment", y="z-score") + theme_bw() +
+    geom_hline(yintercept=-2, linetype="dashed", color = "blue") + 
+    geom_hline(yintercept=-4, linetype="dashed", color = "red") + 
+    scale_x_continuous(expand = c(0, 0)) + scale_y_continuous(breaks = c(0, -2 , -4))
 }
 
 zScorePlot(out_100_25, "Window length: 100 25")
