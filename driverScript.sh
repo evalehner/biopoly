@@ -52,4 +52,21 @@ do
 	echo -e $category '\t' $windowLength '\t' $overlap '\t' $index '\t' $stop '\t' $zScore >> "${category}.txt"
 done
 
-# 6: unfertig in development.sh entwickelt
+# 6: 
+# läuft nur wenn es kein outfile w300s150_shape.out gibt.
+if [ ! -e "w300s150_shape.out" ]; then 
+        for ((i=0; i<64 ;i++)); do
+                SISSIz HCV/w300s150/hcv.clu_w_$((i)).clu --shapeMethod="D" --shape "HCV/w300s150/JFH1.txt_w_$((i)).txt","HCV/w300s150/Con1b.t$
+        done
+fi 
+
+
+# 7 count z-scores of task 6 output
+if [ ! -e "" ]; then
+        rawOut="w300s150_shape.out"
+        count2=`less $rawOut | awk '$13 < -2.0 { count++ } END { print count }'`
+        count4=`less $rawOut | awk '$13 < -4.0 { count++ } END { print count }'`
+        windowNumber=`ls $rawOut | grep -c '.out'`
+        echo -e 'Count2:' '\t' $count2 '\t' 'windowSize:' $windowNumber >> w300s150_shape_count.txt
+        echo -e 'Count2:' '\t' $count4 '\t' 'windowSize:' $windowNumber >> w300s150_shape_count.txt
+done
